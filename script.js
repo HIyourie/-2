@@ -42,7 +42,7 @@ function createThread() {
   if (body) {
     newThread.posts.push({
       name: name,
-      body: body,
+      body: name,
       createdAt: new Date().toLocaleString('ja-JP')
     });
   }
