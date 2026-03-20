@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>掲示板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>📋 掲示板</h1>
+      <p class="subtitle">スレッドを作って話し合おう</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- スレッド作成フォーム -->
+    <section class="create-thread">
+      <h2>➕ 新しいスレッドを立てる</h2>
+      <div class="form-group">
+        <input type="text" id="thread-title" placeholder="スレッドのタイトル" maxlength="100">
+        <textarea id="thread-body" placeholder="最初のメッセージ（任意）" rows="3"></textarea>
+        <input type="text" id="thread-name" placeholder="名前（省略で「名無し」）" maxlength="30">
+        <button onclick="createThread()">スレッドを立てる</button>
+      </div>
+    </section>
+
+    <!-- スレッド一覧 -->
+    <section class="thread-list">
+      <h2>📂 スレッド一覧</h2>
+      <div id="threads"></div>
+    </section>
+  </main>
+
+  <!-- 返信モーダル -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <h3 id="modal-title"></h3>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modal-posts" class="posts"></div>
+      <div class="reply-form">
+        <input type="text" id="reply-name" placeholder="名前（省略で「名無し」）" maxlength="30">
+        <textarea id="reply-body" placeholder="返信を書く..." rows="3"></textarea>
+        <button onclick="submitReply()">返信する</button>
+      </div>
+    </div>
+  </div>
+  <div id="overlay" class="overlay hidden" onclick="closeModal()"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
